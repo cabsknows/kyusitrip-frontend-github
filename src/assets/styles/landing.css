@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+* {
+    font-family: 'inter', 'arial', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 20x;
+}
+
+html, body {
+    background-color: #F8ECC4;
+}
+
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.landing-container {
+    width: 50%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.landing-container .landing-logo {
+    text-align: center;
+    width: 150px;
+
+}
+
+.landing-container .landing-logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.landing-container .landing-title {
+    margin: 0 0 10px 0;
+}
+
+.landing-container .landing-title h1 {
+    margin: 0;
+    color: #F8C107;
+    font-size: 50px;
+}
+
+.landing-container .landing-title span {
+    color: #880015;
+}
+
+.landing-container .landing-btn {
+    display: flex;
+    flex-direction: column;
+}
+
+.landing-container .landing-btn button {
+    margin: 0 0 10px 0;
+}
+
+.landing-container .landing-btn button a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.landing-container .landing-btn :nth-child(1) {
+    background-color: #880015;
+    color: #F8ECC4;
+    border: none;
+    border-radius: 25px;
+    height: 50px;
+    padding: 7px 40px;
+    transition: opacity 0.3s;
+}
+
+.landing-container .landing-btn :nth-child(1):hover {
+    opacity: 0.7;
+}
+
+.landing-container .landing-btn :nth-child(2) {
+    background-color: #F8ECC4;
+    color: #880015;
+    border: 2px solid #880015;
+    border-radius: 25px;
+    height: 50px;
+    padding: 7px 40px;
+    font-weight: 800;
+    transition: opacity 0.3s;
+}
+
+.landing-container .landing-btn :nth-child(2):hover {
+    opacity: 0.6;
+}
+
+.landing-container .landing-txt h5 {
+    color: #4b4b4b;
+}
+
+.landing-container .landing-txt h5 span {
+    color: #F8C107;
+    transition: color 0.3s;
+}
+
+.landing-container .landing-txt h5 span:hover {
+    cursor: pointer;
+    color: #880015;
+}
+
+@media (max-width: 400px) {
+    .landing-container .landing-logo {
+        text-align: center;
+        width: 100px;
+    }
+
+    .landing-container .landing-title h1 {
+        margin: 0;
+        color: #F8C107;
+        font-size: 30px;
+    }
+
+    .landing-container .landing-btn :nth-child(1) {
+        height: 40px;
+        padding: 7px 25px;
+    }
+
+    .landing-container .landing-btn :nth-child(2) {
+        height: 40px;
+        padding: 7px 25px;
+    }
+
+    .landing-container .landing-txt h5 {
+        font-size: 10px;
+    }
+}

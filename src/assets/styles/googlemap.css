@@ -1,0 +1,30 @@
+.gmnoprint {
+    display: none;
+}
+
+.combobox-input {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.infowindow {
+    width: 175px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.infowindow-div {
+    display: flex;
+    gap: 8px;
+}
+
+.infowindow-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.infowindow-div-align {
+    align-items: center;
+}

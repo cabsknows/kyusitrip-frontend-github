@@ -1,0 +1,67 @@
+{
+  "name": "route-wise",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@googlemaps/google-maps-services-js": "github:googlemaps/google-maps-services-js",
+    "@googlemaps/js-api-loader": "^1.16.6",
+    "@googlemaps/polyline-codec": "^1.0.28",
+    "@mapbox/polyline": "^1.2.1",
+    "@mui/icons-material": "^5.15.14",
+    "@mui/material": "^5.15.14",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@react-google-maps/api": "^2.19.2",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "autosuggest-highlight": "^3.3.4",
+    "axios": "^1.6.2",
+    "bootstrap": "^5.3.2",
+    "decode-google-map-polyline": "^1.0.1",
+    "notistack": "^3.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-geocode": "^1.0.0-alpha.1",
+    "react-router-dom": "^6.16.0",
+    "react-select": "^5.7.7",
+    "react-simple-keyboard": "^3.7.121",
+    "redux": "^5.0.1",
+    "socket.io-client": "^4.7.5",
+    "styled-components": "^6.1.8",
+    "validator": "^13.11.0",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

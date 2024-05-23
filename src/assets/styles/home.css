@@ -1,0 +1,78 @@
+.home-modal {
+    position: absolute;
+    left: 0;
+    width: 30rem;
+    height: 100vh;
+    overflow: auto;
+    background-color: white;
+    scrollbar-width: 1px;
+}
+
+.map-container {
+    width: calc(100% - 30rem);
+    height: 100vh;
+    position: absolute;
+    float: right;
+    right: 0px;
+    z-index: 1;
+}
+
+.home-buttons {
+    background-color: #F8C107;
+    padding: 5px 15px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+    position:absolute;
+    bottom:20px;
+    left:40%;
+
+    display: flex;
+    /* position: fixed;
+    left: 50%;
+    bottom: -20px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto; */
+    z-index: 2;
+}
+
+.home-btn {
+    background-color: #F8C107   ;
+    border: none;
+    margin: 10px 30px;
+
+    color: #880015;
+    font-weight: 500;
+    font-family: inter, arial;
+    font-size: 13px;
+    transition: opacity 0.3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-icon {
+    margin-bottom: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.home-btn:active {
+    opacity: 0.7;
+}
+
+.home-page-layers {
+    position: absolute;
+    float: right;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+}
+
+.gmap-layer-button {
+    padding: 10px 15px 10px 15px;
+    margin-left: 2px;
+    font-weight: bold;
+}

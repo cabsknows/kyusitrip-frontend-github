@@ -1,0 +1,377 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+input {
+  padding: 0 0 0 10px;
+  border: 2px inset #ebe9ed;
+}
+
+.success-msg,
+.error-msg {
+  width: 290px;
+  padding: 10px;
+  margin: 10px 0 0 0;
+  font-size: 13px;
+  background-color: #f34646;
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  margin: auto;
+}
+
+.success-msg {
+  background-color: #00c04b;
+}
+
+.red-asterisk {
+  color: red;
+}
+
+/* --------------------HEADER MODAL-------------------- */
+
+.header-modal {
+  width: 100%;
+  height: 8%;
+  background-color: #880015;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-modal-col1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding-right: 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.header-modal-col1 h2 {
+  color: #f8c107;
+}
+
+.header-modal-col1 h2 span {
+  color: white;
+}
+
+.header-logo {
+  width: 20px;
+  height: 20px;
+}
+
+.header-modal-col1-title {
+  display: flex;
+  align-items: center;
+}
+
+.header-modal-col2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-modal-col2 h4 {
+  color: white;
+}
+
+.header-modal-col2 h4 span {
+  color: #f8c107;
+}
+
+.header-modal-col2 p {
+  font-size: 10px;
+  color: white;
+  opacity: 0.8;
+}
+
+/* --------------------ROUTE MODAL-------------------- */
+
+.route-modal-top {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 40%;
+}
+
+.route-modal-top-title {
+  padding: 20px 0 10px 10px;
+}
+
+.route-modal-top-title p {
+  font-size: 13px;
+}
+
+.route-modal-search {
+  /* height: 50%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px 15px 0;
+}
+
+.route-modal-top-left {
+  display: flex;
+  align-items: center;
+}
+
+.route-modal-icon {
+  height: 90px;
+  width: 45px;
+}
+
+.route-modal-search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.route-modal-combo-box {
+  height: 60px;
+  width: 320px;
+  padding: 10px;
+  border-color: black;
+  border-width: 1px;
+  font-size: 18px;
+}
+
+.route-modal-pin-location {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 5px;
+  margin-top: 11px;
+}
+
+.route-modal-pin-location-buttons {
+  background-color: #880015;
+  color: #fff;
+  font-size: 12px;
+  height: 60px;
+  width: 80px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.route-modal-pin-location-buttons:active {
+  opacity: 0.7;
+}
+
+.route-modal-reset-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.route-modal-top-options {
+  width: 100%;
+  padding: 0 10px 10px 10px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.route-modal-button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 0 0;
+}
+
+.route-modal-btn {
+  background-color: #880015;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  width: 70%;
+  height: 70px;
+  padding: 7px 40px;
+  transition: opacity 0.3s;
+  font-size: 18px;
+}
+
+.route-modal-btn:active {
+  opacity: 0.6;
+}
+
+.route-modal-btn-reset {
+  background-color: #f8c107;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  width: 55px;
+  height: 25px;
+  padding: auto;
+  transition: opacity 0.3s;
+  font-size: 12;
+  float: right;
+}
+
+.route-modal-button-reset {
+  padding: 0 10px 0 0;
+}
+.route-modal-btn-reset:hover {
+  opacity: 0.7;
+}
+.route-modal-bottom {
+  margin-top: 20px;
+}
+
+.route-modal-bottom-nonexist {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 50px 0 0 0;
+  gap: 20px;
+  width: 100%;
+}
+
+.route-modal-bottom-nonexist p {
+  font-size: 14px;
+}
+
+.route-modal-bottom-placeholder {
+  width: 150px;
+  height: 150px;
+}
+
+.route-modal-suggestedroutes {
+  padding: 5px 0 15px 10px;
+  float: left;
+}
+
+/* --------------------COMMON POPUP MODAL-------------------- */
+.common-popup-modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.common-popup-modal-container {
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+    0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+}
+
+.common-popup-modal-container p {
+  margin-bottom: 20px;
+}
+
+.common-popup-modal-container button {
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  background-color: #880015;
+  color: white;
+  border-radius: 20px;
+  width: 180px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+
+/* Menu Modal */
+.menu-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 600px;
+}
+
+.menu-modal-logout {
+
+  background-color: #f8c107;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  padding: auto;
+  margin: auto;
+  transition: opacity 0.3s;
+  font-size: 12;
+  /* float: right; */
+}
+
+.menu-modal-logout:hover {
+  background-color: #ffd23f;
+}
+
+.virtual-keyboard {
+  position: fixed;
+  bottom: 25px;
+  left: 60%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 100%; /* Increase the width */
+  max-width: 1200px; /* Set a maximum width */
+  height: auto; /* Allow the height to adjust based on content */
+  font-size: 1rem; /* Increase the font size for larger keys */
+  background-color: #880015; /* Background color of the keyboard */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.virtual-keyboard .hg-button {
+  height: 60px; /* Adjust the height of each key */
+  line-height: 60px; /* Center text vertically */
+  font-size: 1.2em; /* Increase the font size of each key */
+  margin: 0 5px; /* Add some margin between keys */
+  color: #880015;
+  background-color: #fff;
+}
+
+.virtual-keyboard .hg-button:active {
+  background-color: #880015; /* Darker green when the key is pressed */
+  color: #fff;
+}
+
+.pac-container {
+  background-color: #fff; /* Change background color */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Add shadow */
+  font-family: Arial, sans-serif; /* Change font family */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Style for each suggestion item */
+.pac-item {
+  padding: 10px; /* Add padding */
+  font-size: 16px; /* Change font size */
+  color: #333; /* Change text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  height: 90px;
+  align-content: center;
+}
+
+/* Style for the highlighted suggestion item */
+.pac-item-selected {
+  background-color: #880015; /* Background color on hover */
+  color: #fff; /* Text color on hover */
+}
+
+/* Style for the suggestion main text */
+.pac-item .pac-item-query {
+  font-weight: bold; /* Bold main text */
+  /* color: #880015; Change color */
+  font-size: 18px;
+}
