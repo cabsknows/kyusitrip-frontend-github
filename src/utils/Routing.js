@@ -14,8 +14,8 @@ const Routing = () => {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<LandingPage />}></Route>
-          <Route path='/HomePage' element={<HomePage />}></Route>
+          <Route path='/kyusitrip-frontend-github' element={<LandingPage />}></Route>
+          <Route path='/kyusitrip-frontend-github/HomePage' element={<HomePage />}></Route>
           <Route path='/users/:id/verify/:token' element={<EmailVerify />}></Route>
           <Route path='/password-reset/:id/:token' element={<PasswordReset />}></Route>
         </Routes>
