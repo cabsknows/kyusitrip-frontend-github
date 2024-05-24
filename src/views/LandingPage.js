@@ -23,7 +23,7 @@ const LandingPage = () => {
 
         <div className='landing-btn'>
           <button onClick={() => navigate('/LoginPage')}>Log in</button>
-          <button onClick={() => navigate('/HomePage')}>Continue as Guest</button>
+          <button onClick={() => navigate('/kyusitrip-frontend-github/HomePage')}>Continue as Guest</button>
         </div>
 
         <div className='landing-txt'>
