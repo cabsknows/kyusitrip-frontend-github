@@ -41,4 +41,4 @@ jobs:
         REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
     
     -name: Read a variable
-      run: console.log(`${{ secrets.REACT_APP_API_KEY }}`)
+      run: echo "${{ secrets.REACT_APP_API_KEY }}""
