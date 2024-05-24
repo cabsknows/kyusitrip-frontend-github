@@ -16,7 +16,7 @@ const ModalHeader = ({ title, isRoute = true }) => {
         </div>
         <div className='header-modal-col2'>
           <div>
-            {isRoute ? (<h4 style={{fontSize: "20px"}}>Kyusii<span>{ title }</span></h4>)
+            {isRoute ? (<h4 style={{fontSize: "20px"}}>Kyusi<span>{ title }</span></h4>)
             : <h4><span>{ title }</span></h4>
             }
           </div>
