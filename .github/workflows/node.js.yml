@@ -13,6 +13,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
 
     strategy:
       matrix:
@@ -20,6 +22,12 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - name: Read a secret variable
+      run: echo "The value is ${{ secrets.REACT_APP_API_KEY }}"
+
+    - name: Read a env variable
+      run: echo "The value is ${{ vars.REACT_APP_API_KEY }}"
+
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -27,8 +35,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-      env:
-        REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
     - run: npm run build --if-present
     - run: npm test
 
@@ -38,7 +44,3 @@ jobs:
         npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-    
-    -name: Read a variable
-      run: echo "${{ secrets.REACT_APP_API_KEY }}"
