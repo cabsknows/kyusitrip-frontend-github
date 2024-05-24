@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/kyusitrip-frontend-github/static/css/main.2069d7fa.css",
+    "main.js": "/kyusitrip-frontend-github/static/js/main.e14c2e5b.js",
+    "static/media/accident-icon.svg": "/kyusitrip-frontend-github/static/media/accident-icon.4c9c84e364b16a05cc23129ca7ac6360.svg",
+    "static/media/traffic-jam-icon.svg": "/kyusitrip-frontend-github/static/media/traffic-jam-icon.e02dfb6df98056552e3bdd205a6562b6.svg",
+    "static/media/flood-icon.svg": "/kyusitrip-frontend-github/static/media/flood-icon.4aed1757381686461ff66c260a7ce47e.svg",
+    "static/media/road-repair-icon.svg": "/kyusitrip-frontend-github/static/media/road-repair-icon.4114e7215d0c78634e8a634afd0daa6b.svg",
+    "static/media/closure-icon.svg": "/kyusitrip-frontend-github/static/media/closure-icon.b51d1b813097c23eb0dfb56c035bc93a.svg",
+    "static/media/route-modal-map-icon.png": "/kyusitrip-frontend-github/static/media/route-modal-map-icon.205be59931b2848b521f.png",
+    "static/media/placeholder.png": "/kyusitrip-frontend-github/static/media/placeholder.cda535e2fe1464feb905.png",
+    "static/media/success.png": "/kyusitrip-frontend-github/static/media/success.3146d23309d5c2a7f7ec.png",
+    "static/media/map-jeep.png": "/kyusitrip-frontend-github/static/media/map-jeep.80beb04086b0a5623105.png",
+    "static/media/map-origin.png": "/kyusitrip-frontend-github/static/media/map-origin.df130498e4193fd8c52b.png",
+    "static/media/map-destination.png": "/kyusitrip-frontend-github/static/media/map-destination.bdd982cece3abe51fa9e.png",
+    "static/media/map-bus.png": "/kyusitrip-frontend-github/static/media/map-bus.6efff164122da3d9931b.png",
+    "static/media/map-rail.png": "/kyusitrip-frontend-github/static/media/map-rail.8e0581177ea0640d7fae.png",
+    "static/media/modal-logo.svg": "/kyusitrip-frontend-github/static/media/modal-logo.1fcc63f9241870f29861610db90d463c.svg",
+    "static/media/LOGO2.svg": "/kyusitrip-frontend-github/static/media/LOGO2.8c423755cc57b9a8b718a8050b046af4.svg",
+    "index.html": "/kyusitrip-frontend-github/index.html",
+    "main.2069d7fa.css.map": "/kyusitrip-frontend-github/static/css/main.2069d7fa.css.map",
+    "main.e14c2e5b.js.map": "/kyusitrip-frontend-github/static/js/main.e14c2e5b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2069d7fa.css",
+    "static/js/main.e14c2e5b.js"
+  ]
+}
