@@ -26,7 +26,7 @@ import io from "socket.io-client"
 const Map = (props) => {
 
   // Declarations
-  const socket = io.connect("http://localhost:3001")
+  const socket = io.connect("https://tq03tq0w-3001.asse.devtunnels.ms")
 
   // ------------------------------------------------------------ //
   // Props
