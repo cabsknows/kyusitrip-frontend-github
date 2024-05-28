@@ -319,12 +319,12 @@ input {
 
 .virtual-keyboard {
   position: fixed;
-  bottom: 10px;
+  bottom: 70px;
   left: 60%;
   transform: translateX(-50%);
   z-index: 1000;
   width: 100%; /* Increase the width */
-  max-width: 1300px; /* Set a maximum width */
+  max-width: 1000px; /* Set a maximum width */
   height: auto; /* Allow the height to adjust based on content */
   font-size: 1rem; /* Increase the font size for larger keys */
   background-color: #880015; /* Background color of the keyboard */
