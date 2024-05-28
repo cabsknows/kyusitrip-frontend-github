@@ -10,7 +10,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='landing-page'>
+    <div className='landing-page' onClick={() => navigate('/kyusitrip-frontend-github/HomePage')}>
       <div className='landing-container'>
         
         <div className='landing-logo'>
@@ -21,13 +21,8 @@ const LandingPage = () => {
           <h1><span>K</span>yusi<span>T</span>rip</h1>
         </div>
 
-        <div className='landing-btn'>
-          <button onClick={() => navigate('/LoginPage')}>Log in</button>
-          <button onClick={() => navigate('/kyusitrip-frontend-github/HomePage')}>Continue as Guest</button>
-        </div>
-
-        <div className='landing-txt'>
-          <h5>No Account? <span onClick={() => navigate('/SignupPage')}>Create One</span></h5>
+        <div style={{position: "absolute", bottom: "30px"}}>
+          <p>Tap anywhere to continue</p>
         </div>
       </div>
     </div>

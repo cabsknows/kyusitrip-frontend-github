@@ -319,7 +319,7 @@ input {
 
 .virtual-keyboard {
   position: fixed;
-  bottom: 25px;
+  bottom: 70px;
   left: 60%;
   transform: translateX(-50%);
   z-index: 1000;

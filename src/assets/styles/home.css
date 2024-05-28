@@ -66,13 +66,26 @@
 .home-page-layers {
     position: absolute;
     float: right;
-    top: 10px;
-    right: 10px;
+    top: 0px;
+    right: 0px;
     z-index: 3;
+}
+
+.home-page-kyusitrip {
+    position: absolute;
+    float: right;
+    bottom: 0px;
+    right: 0px;
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .gmap-layer-button {
     padding: 10px 15px 10px 15px;
     margin-left: 2px;
     font-weight: bold;
+    width: 200px;
+    height: 70px;
 }

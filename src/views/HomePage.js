@@ -138,6 +138,10 @@ const HomePage = () => {
       <div className='home-page-layers'>
         <button className='gmap-layer-button' onClick={() => setShowTrafficLayer(!showTrafficLayer)}>{showTrafficLayer ? "Hide Traffic" : "Show Traffic"}</button>
       </div>
+
+      <div className='home-page-kyusitrip'>
+        <p style={{backgroundColor: "#880015", width: "120px", color: "#fff"}}>KyusiTrip</p>
+      </div>
     </>
   )
 }

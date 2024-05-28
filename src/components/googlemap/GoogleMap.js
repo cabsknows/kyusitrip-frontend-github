@@ -26,7 +26,8 @@ import io from "socket.io-client"
 const Map = (props) => {
 
   // Declarations
-  const socket = io.connect("https://tq03tq0w-3001.asse.devtunnels.ms")
+  // const socket = io.connect("https://tq03tq0w-3001.asse.devtunnels.ms")
+  const socket = io.connect("https://kyusitrip-backend.azurewebsites.net")
 
   // ------------------------------------------------------------ //
   // Props

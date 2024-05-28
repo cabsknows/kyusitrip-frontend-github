@@ -28,7 +28,7 @@ html, body {
 
 .landing-container .landing-logo {
     text-align: center;
-    width: 150px;
+    width: 500px;
 
 }
 
@@ -44,7 +44,7 @@ html, body {
 .landing-container .landing-title h1 {
     margin: 0;
     color: #F8C107;
-    font-size: 50px;
+    font-size: 90px;
 }
 
 .landing-container .landing-title span {
