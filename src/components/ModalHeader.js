@@ -10,7 +10,7 @@ const ModalHeader = ({ title, isRoute = true }) => {
   return (
     <>
       <div className="header-modal">
-        <div className='header-modal-col1'>
+        <div className='header-modal-col1' onDoubleClick={() => navigate('/kyusitrip-frontend-github')}> 
           <div className='header-modal-col1-title'>
             <img className='header-logo' src={modalLogo} alt="logo" />
           </div>
@@ -19,7 +19,7 @@ const ModalHeader = ({ title, isRoute = true }) => {
           </div>
         </div>
         <div className='header-modal-col2'>
-          <div onDoubleClick={() => navigate('/kyusitrip-frontend-github')}>
+          <div>
             {isRoute ? (<h4 style={{fontSize: "20px"}}>Kyusi<span>{ title }</span></h4>)
             : <h4><span>{ title }</span></h4>
             }
