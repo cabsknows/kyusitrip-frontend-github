@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/kyusitrip-frontend-github/static/css/main.56858419.css",
+    "main.css": "/kyusitrip-frontend-github/static/css/main.01b9976f.css",
     "main.js": "/kyusitrip-frontend-github/static/js/main.3c4a650e.js",
     "static/media/accident-icon.svg": "/kyusitrip-frontend-github/static/media/accident-icon.4c9c84e364b16a05cc23129ca7ac6360.svg",
     "static/media/traffic-jam-icon.svg": "/kyusitrip-frontend-github/static/media/traffic-jam-icon.e02dfb6df98056552e3bdd205a6562b6.svg",
@@ -18,11 +18,11 @@
     "static/media/modal-logo.svg": "/kyusitrip-frontend-github/static/media/modal-logo.1fcc63f9241870f29861610db90d463c.svg",
     "static/media/LOGO2.svg": "/kyusitrip-frontend-github/static/media/LOGO2.8c423755cc57b9a8b718a8050b046af4.svg",
     "index.html": "/kyusitrip-frontend-github/index.html",
-    "main.56858419.css.map": "/kyusitrip-frontend-github/static/css/main.56858419.css.map",
+    "main.01b9976f.css.map": "/kyusitrip-frontend-github/static/css/main.01b9976f.css.map",
     "main.3c4a650e.js.map": "/kyusitrip-frontend-github/static/js/main.3c4a650e.js.map"
   },
   "entrypoints": [
-    "static/css/main.56858419.css",
+    "static/css/main.01b9976f.css",
     "static/js/main.3c4a650e.js"
   ]
 }
