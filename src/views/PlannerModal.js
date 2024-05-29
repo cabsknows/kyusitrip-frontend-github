@@ -4,6 +4,8 @@ import Keyboard from "react-simple-keyboard"
 import 'react-simple-keyboard/build/css/index.css';
 import { library } from "@fortawesome/fontawesome-svg-core"
 import * as Icons from "@fortawesome/free-solid-svg-icons"
+import { useNavigate } from 'react-router-dom';
+import { useIdleTimer } from 'react-idle-timer'
 
 import ModalHeader from "../components/ModalHeader.js"
 import routeIcon from "../assets/img/route-modal-map-icon.png"
@@ -17,6 +19,46 @@ import "../assets/styles/routelist.css"
 
 
 const RouteModal = (props) => {
+
+  // ------------------------------------------------------------ //
+  // Idle Timer
+  // ------------------------------------------------------------ //
+  const navigate = useNavigate();
+
+  const [state, setState] = useState('Active')
+  const [count, setCount] = useState(0)
+  const [remaining, setRemaining] = useState(0)
+
+  const onIdle = () => {
+    setState('Idle')
+    navigate('/kyusitrip-frontend-github')
+  }
+
+  const onActive = () => {
+    setState('Active')
+  }
+
+  const onAction = () => {
+    setCount(count + 1)
+  }
+
+  const { getRemainingTime } = useIdleTimer({
+    onIdle,
+    onActive,
+    onAction,
+    timeout: 120_000,
+    throttle: 500
+  })
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRemaining(Math.ceil(getRemainingTime() / 1000))
+    }, 500)
+
+    return () => {
+      clearInterval(interval)
+    }
+  })
   
   // Props
   const {
@@ -59,9 +101,17 @@ const RouteModal = (props) => {
     onItinerarySelect(null)
     originInputRef.current.value = null
     destinationInputRef.current.value = null
+    selectOriginMarker(null)
     selectDestinationMarker(null)
     setShowOriginKeyboard(false)
     setShowDestinationKeyboard(false)
+  }
+
+  const handleResetClick = () => {
+    setRoutes(null)
+    onItinerarySelect(null)
+    selectOriginMarker(null)
+    selectDestinationMarker(null)
   }
 
 
@@ -93,11 +143,13 @@ const RouteModal = (props) => {
   const handlePinOrigin = () => {
     setError('')
     onPinOrigin(true)
+    onPinDestination(false)
     setShowOriginKeyboard(false)
     setShowDestinationKeyboard(false)
   }
   const handlePinDestination = () => {
     setError('')
+    onPinOrigin(false)
     onPinDestination(true)
     setShowOriginKeyboard(false)
     setShowDestinationKeyboard(false)
@@ -176,7 +228,9 @@ const RouteModal = (props) => {
     }, 0);
   };
   const onKeyPressOrigin = button => {
-    console.log(button);
+    if (button === '{enter}') {
+      setShowOriginKeyboard(false)
+    }
     if (showOriginKeyboard) { originInputRef.current.focus(); }
   };
 
@@ -188,7 +242,9 @@ const RouteModal = (props) => {
     }, 0);
   };
   const onKeyPressDestination = button => {
-    console.log(button);
+    if (button === '{enter}') {
+      setShowDestinationKeyboard(false)
+    }
     if (showDestinationKeyboard) { destinationInputRef.current.focus(); }
   };
   // ************************************************************ //
@@ -258,7 +314,7 @@ const RouteModal = (props) => {
 
       <div className="route-modal-top">
         <div className="route-modal-top-title">
-          <h3 style={{fontSize: "20px"}}>Find your Public Transportation Route within Quezon City</h3>
+          <h3 style={{fontSize: "20px"}}>Find your Public Transportation Route within Quezon City {remaining}</h3>
         </div>
 
         <div className="route-modal-search">
@@ -282,12 +338,17 @@ const RouteModal = (props) => {
                   className="route-modal-combo-box"
                   onClick={() => {
                     onPinOrigin(false)
-                    originInputRef.current.select()
-                  }}
-                  onFocus={() => {
                     setShowOriginKeyboard(true)
                     setShowDestinationKeyboard(false)
+                    originInputRef.current.select()
+                    if (routes) {
+                      handleResetClick()
+                    }
                   }}
+                  // onFocus={() => {
+                  //   setShowOriginKeyboard(true)
+                  //   setShowDestinationKeyboard(false)
+                  // }}
                   ref={originInputRef}
                 />
               </Autocomplete>
@@ -302,19 +363,20 @@ const RouteModal = (props) => {
                         "1 2 3 4 5 6 7 8 9 0 {bksp}",
                         "Q W E R T Y U I O P",
                         "A S D F G H J K L",
-                        "Z X C V B N M",
+                        "Z X C V B N M {enter}",
                         "{space}"
                       ]
                     }}
                     display={{
-                      '{bksp}': 'Backspace',
-                      '{space}': 'SPACE',
+                      '{bksp}': 'backspace',
+                      '{space}': 'space',
                       '{shift}': 'shift',
+                      '{enter}': 'close'
                     }}
                     onChange={onChangeOrigin}
                     onKeyPress={onKeyPressOrigin}
                     useMouseEvents={true}
-                    maxLength={15}
+                    maxLength={25}
                     disableButtonHold={true}
                   />
                 </div>
@@ -332,13 +394,18 @@ const RouteModal = (props) => {
                   placeholder="Destination"
                   className="route-modal-combo-box"
                   onClick={() => {
-                    onPinDestination(false)
-                    destinationInputRef.current.select()
-                  }}
-                  onFocus={() => {
                     setShowOriginKeyboard(false)
                     setShowDestinationKeyboard(true)
+                    onPinDestination(false)
+                    destinationInputRef.current.select()
+                    if (routes) {
+                      handleResetClick()
+                    }
                   }}
+                  // onFocus={() => {
+                  //   setShowOriginKeyboard(false)
+                  //   setShowDestinationKeyboard(true)
+                  // }}
                   ref={destinationInputRef}
                 />
               </Autocomplete>
@@ -353,14 +420,15 @@ const RouteModal = (props) => {
                         "1 2 3 4 5 6 7 8 9 0 {bksp}",
                         "Q W E R T Y U I O P",
                         "A S D F G H J K L",
-                        "Z X C V B N M",
+                        "Z X C V B N M {enter}",
                         "{space}"
                       ]
                     }}
                     display={{
-                      '{bksp}': 'Backspace',
-                      '{space}': 'SPACE',
+                      '{bksp}': 'backspace',
+                      '{space}': 'space',
                       '{shift}': 'shift',
+                      '{enter}': 'close'
                     }}
                     onChange={onChangeDestination}
                     onKeyPress={onKeyPressDestination}
@@ -376,20 +444,44 @@ const RouteModal = (props) => {
             <div className="route-modal-pin-location">
               <button 
                 className="route-modal-pin-location-buttons"
-                onClick={handlePinOrigin}
+                // onClick={handlePinOrigin}
+                onClick={() => {
+                  if (!isPinOrigin) {
+                    handlePinOrigin()
+                  } else {
+                    onPinOrigin(false)
+                    originInputRef.current.select()
+                    setShowOriginKeyboard(true)
+                  }
+                }}
               >
-                {isPinOrigin ? "CLICK ON MAP" : "PIN ORIGIN"}
+                {isPinOrigin ? "SEARCH INSTEAD" : "PIN ORIGIN"}
               </button>
 
               <button 
                 className="route-modal-pin-location-buttons"
-                onClick={handlePinDestination}
+                // onClick={handlePinDestination}
+                onClick={() => {
+                  if (!isPinDestination) {
+                    handlePinDestination()
+                  } else {
+                    onPinDestination(false)
+                    destinationInputRef.current.select()
+                    setShowDestinationKeyboard(true)
+                  }
+                }}
               >
-                {isPinDestination ? "CLICK ON MAP" : "PIN DEST."}
+                {isPinDestination ? "SEARCH INSTEAD" : "PIN DEST."}
               </button>
             </div>
           </div>
         </div>
+
+        {isPinOrigin && 
+          <div className="pinMessage">
+            <p>Set an origin by clicking a location on map</p>
+          </div>
+        }
 
         {error && <div className="error-msg">{error}</div>}
 
@@ -427,7 +519,7 @@ const RouteModal = (props) => {
                       Suggested Routes
                     </h4>
                     <div className="route-modal-button-reset">
-                      <button onClick={handleReset} className="route-modal-btn-reset">Reset</button>
+                      <button onClick={handleReset} className="route-modal-btn-reset">CLEAR ALL</button>
                     </div>
                   </div>
                   <div style={{marginLeft: "10px", fontSize: "14px"}}>Note: ETA may vary depending on traffic and PUV's waiting time</div>

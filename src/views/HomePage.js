@@ -7,6 +7,8 @@ import '../assets/styles/home.css'
 
 const HomePage = () => {
 
+
+
   // ------------------------------------------------------------ //
   // General Declarations/States
   // ------------------------------------------------------------ //
@@ -14,6 +16,7 @@ const HomePage = () => {
   const [centerLat, setCenterLat] = useState(14.6515)
   const [centerLng, setCenterLng] = useState(121.0493)
   const [showTrafficLayer, setShowTrafficLayer] = useState(false)
+  
 
 
   // ------------------------------------------------------------ //
@@ -21,6 +24,8 @@ const HomePage = () => {
   // ------------------------------------------------------------ //
   const [isPinOrigin, setIsPinOrigin] = useState(false) // Make it possible to pin origin location on map if true
   const onPinOrigin = (isPin) => { // Callback function when clicking "PIN ORIGIN"
+    setCenterLat(null)
+    setCenterLng(null)
     setIsPinOrigin(isPin)
   }
 
@@ -31,6 +36,8 @@ const HomePage = () => {
 
   const [isPinDestination, setIsPinDestination] = useState(false) // Make it possible to pin destination location on map if true
   const onPinDestination = (isPin) => { // Callback function when clicking "PIN DEST."
+    setCenterLat(null)
+    setCenterLng(null)
     setIsPinDestination(isPin)
   }
 

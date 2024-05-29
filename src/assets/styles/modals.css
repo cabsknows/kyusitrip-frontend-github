@@ -204,7 +204,7 @@ input {
   color: black;
   border: none;
   border-radius: 10px;
-  width: 55px;
+  width: 85px;
   height: 25px;
   padding: auto;
   transition: opacity 0.3s;
@@ -317,6 +317,21 @@ input {
   background-color: #ffd23f;
 }
 
+.pinMessage {
+  position: fixed;
+  top: 70px;
+  left: 60%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 100%; /* Increase the width */
+  max-width: 400px; /* Set a maximum width */
+  height: auto; /* Allow the height to adjust based on content */
+  font-size: 1rem; /* Increase the font size for larger keys */
+  background-color: #880015; /* Background color of the keyboard */
+  color: #fff;
+  text-align: center;
+}
+
 .virtual-keyboard {
   position: fixed;
   bottom: 70px;
@@ -356,7 +371,7 @@ input {
 /* Style for each suggestion item */
 .pac-item {
   padding: 10px; /* Add padding */
-  font-size: 16px; /* Change font size */
+  font-size: 12px; /* Change font size */
   color: #333; /* Change text color */
   cursor: pointer; /* Pointer cursor on hover */
   height: 90px;
@@ -373,5 +388,5 @@ input {
 .pac-item .pac-item-query {
   font-weight: bold; /* Bold main text */
   /* color: #880015; Change color */
-  font-size: 18px;
+  font-size: 16px;
 }
