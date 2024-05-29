@@ -319,17 +319,25 @@ input {
 
 .pinMessage {
   position: fixed;
-  top: 70px;
+  bottom: 50px;
   left: 60%;
   transform: translateX(-50%);
+  padding: 20px;
   z-index: 1000;
   width: 100%; /* Increase the width */
-  max-width: 400px; /* Set a maximum width */
+  max-width: 500px; /* Set a maximum width */
   height: auto; /* Allow the height to adjust based on content */
   font-size: 1rem; /* Increase the font size for larger keys */
-  background-color: #880015; /* Background color of the keyboard */
-  color: #fff;
+  background-color: #ededed; /* Background color of the keyboard */
+  border-radius: 10px;
+  box-shadow:  4px 4px 5px #696969,
+              -4px -4px 5px #696969;
+  color: #000000;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .virtual-keyboard {

@@ -14,6 +14,7 @@ import routePlaceholder from "../assets/img/placeholder.png"
 import routeService from "../services/routeService.js"
 import RouteList from '../components/planner/RouteList.js'
 import config from "../utils/config.js"
+import mapPin from "../assets/img/map-pin-fill.svg"
 import "../assets/styles/modals.css"
 import "../assets/styles/routelist.css"
 
@@ -25,40 +26,14 @@ const RouteModal = (props) => {
   // ------------------------------------------------------------ //
   const navigate = useNavigate();
 
-  const [state, setState] = useState('Active')
-  const [count, setCount] = useState(0)
-  const [remaining, setRemaining] = useState(0)
-
   const onIdle = () => {
-    setState('Idle')
     navigate('/kyusitrip-frontend-github')
   }
-
-  const onActive = () => {
-    setState('Active')
-  }
-
-  const onAction = () => {
-    setCount(count + 1)
-  }
-
-  const { getRemainingTime } = useIdleTimer({
+  useIdleTimer({
     onIdle,
-    onActive,
-    onAction,
-    timeout: 120_000,
-    throttle: 500
+    timeout: 180_000
   })
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRemaining(Math.ceil(getRemainingTime() / 1000))
-    }, 500)
-
-    return () => {
-      clearInterval(interval)
-    }
-  })
   
   // Props
   const {
@@ -314,7 +289,7 @@ const RouteModal = (props) => {
 
       <div className="route-modal-top">
         <div className="route-modal-top-title">
-          <h3 style={{fontSize: "20px"}}>Find your Public Transportation Route within Quezon City {remaining}</h3>
+          <h3 style={{fontSize: "20px"}}>Find your Public Transportation Route within Quezon City</h3>
         </div>
 
         <div className="route-modal-search">
@@ -447,11 +422,13 @@ const RouteModal = (props) => {
                 // onClick={handlePinOrigin}
                 onClick={() => {
                   if (!isPinOrigin) {
+                    if (routes) {
+                      handleResetClick()
+                    }
                     handlePinOrigin()
                   } else {
                     onPinOrigin(false)
                     originInputRef.current.select()
-                    setShowOriginKeyboard(true)
                   }
                 }}
               >
@@ -463,11 +440,13 @@ const RouteModal = (props) => {
                 // onClick={handlePinDestination}
                 onClick={() => {
                   if (!isPinDestination) {
+                    if (routes) {
+                      handleResetClick()
+                    }
                     handlePinDestination()
                   } else {
                     onPinDestination(false)
                     destinationInputRef.current.select()
-                    setShowDestinationKeyboard(true)
                   }
                 }}
               >
@@ -479,7 +458,15 @@ const RouteModal = (props) => {
 
         {isPinOrigin && 
           <div className="pinMessage">
-            <p>Set an origin by clicking a location on map</p>
+            <p>Click on the map to choose your starting point</p>
+            <img src={mapPin} alt='pin' style={{height: "30px"}}/>
+          </div>
+        }
+
+        {isPinDestination && 
+          <div className="pinMessage">
+            <p>Click on the map to choose your destination point</p>
+            <img src={mapPin} alt='pin' style={{height: "30px"}}/>
           </div>
         }
 
