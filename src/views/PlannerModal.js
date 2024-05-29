@@ -154,6 +154,7 @@ const RouteModal = (props) => {
           error.response.status <= 500
         ) {
           setRoutes(null);
+          setLoading(false)
           setError(error.response.data.message)
         }
       });
