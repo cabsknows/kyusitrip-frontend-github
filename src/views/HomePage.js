@@ -147,7 +147,7 @@ const HomePage = () => {
       </div>
 
       <div className='home-page-kyusitrip'>
-        <p style={{backgroundColor: "#880015", width: "120px", color: "#fff"}}>KyusiTrip</p>
+        <p style={{fontWeight: "700", backgroundColor: "#880015", width: "120px", color: "#fff"}}>Kyusi<span style={{color: "#f3b60c"}}>Trip</span></p>
       </div>
     </>
   )
