@@ -15,6 +15,14 @@
     gap: 10px;
 }
 
+.infowindow2 {
+    width: 175px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .infowindow-div {
     display: flex;
     gap: 8px;

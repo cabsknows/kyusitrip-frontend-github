@@ -130,18 +130,54 @@ const Map = (props) => {
   // ------------------------------------------------------------ //
   // Planner Modal - Render the markers of the legs of the chosen itinerary
   // ------------------------------------------------------------ //
+  const [selectedMarker, setSelectedMarker] = useState(null)
   const renderLegStartMarkers = () => {
+    const handleStartMarkerClick = (marker) => {
+      setSelectedMarker(marker)
+      console.log(marker)
+    }
+    const handleMarkerInfoWindowClose = () => {
+      setSelectedMarker(null)
+    }
+
+
     if (selectedItinerary && selectedItinerary.legs) {
-      return selectedItinerary.legs.map((leg, index) => (
-        <Marker
-          key={index}
-          position={{ lat: leg.from.lat, lng: leg.from.lon }}
-          icon={{
-            url: modeIcons(leg),
-            scaledSize: new google.maps.Size(35, 35)
-          }}
-        />
-      ));
+      return selectedItinerary.legs.map((leg, index) => {
+        return (
+          <Marker
+            key={index}
+            position={{ lat: leg.from.lat, lng: leg.from.lon }}
+            icon={{
+              url: modeIcons(leg),
+              scaledSize: new google.maps.Size(35, 35)
+            }}
+            onClick={() => handleStartMarkerClick(leg)}
+          >
+            {selectedMarker === leg && (
+              <div>
+                <InfoWindow
+                  position={{ lat: leg.from.lat, lng: leg.from.lon }}
+                  onCloseClick={handleMarkerInfoWindowClose}
+                >
+                  
+                  <div className="infowindow2"> 
+                    <h3 style={{color: '#000'}}>{(leg.mode === 'WALK') ? <></> : `${leg.route.longName}`}</h3>
+                    <hr/>
+                    <div className="infowindow-div infowindow-div-align">
+                      <img className="infowindow-icon" src={modeIcons(leg)} alt="mode"/>
+                      <p>{(leg.mode === "BUS" && leg.route.gtfsId.includes("PUJ")) ? "JEEP" : `${leg.mode}`}</p>
+                    </div>
+                    <div className="infowindow-div">
+                      <img className="infowindow-icon" src={addressInfo} alt="address"/>
+                      <p>{leg.from.name}</p>
+                    </div>
+                  </div>
+                </InfoWindow>
+              </div>
+            )}
+          </Marker>
+        )
+      });
     }
     return null;
   };
