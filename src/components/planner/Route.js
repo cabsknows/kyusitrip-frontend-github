@@ -92,7 +92,7 @@ const Route = (props) => {
       legColor = "#FF7F7F"
     } else if(leg.mode === "BUS") {
       if(leg.route.gtfsId.includes("PUJ")) {
-        legColor = "#397822"
+        legColor = "#89D36F"
       } else {
         legColor = "#45B6FE"
       }     

@@ -12,7 +12,7 @@ const RouteDetail = ({ leg, selectRouteDetailCenter }) => {
       color = '#FF7F7F'
     } else if (leg.mode === 'BUS') {
       if(leg.route.gtfsId.includes("PUJ")) {
-        color = "#397822"
+        color = "#89D36F"
       } else {
         color = "#45B6FE"
       }   
