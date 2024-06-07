@@ -78,18 +78,10 @@ const Map = (props) => {
     const now = new Date()
     const createdAt = new Date(iso)
     const diffInMilliseconds = now - createdAt
-    const diffInMinutes = Math.round(diffInMilliseconds / (60 * 1000))
-    if (diffInMinutes < 1) {
-      return 'Just now';
-    } else if (diffInMinutes === 1) {
-      return '1 minute ago';
-    } else if (diffInMinutes <= 60){
-      return `${diffInMinutes} minutes ago`;
-    } else if (diffInMinutes > 60 && diffInMinutes < 120) {
-      return '1 hour ago'
-    } else {
-      return `${Math.round(diffInMinutes/60)} hours ago`
-    }
+    // const diffInMinutes = Math.round(diffInMilliseconds / (60 * 1000))
+    // console.log(createdAt.toLocaleTimeString())
+    return createdAt.toLocaleTimeString()
+
   }
 
 
