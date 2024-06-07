@@ -75,9 +75,9 @@ const Map = (props) => {
   // ISO 8601 date string converter
   // ------------------------------------------------------------ //
   const isoDateConverter = (iso) => {
-    const now = new Date()
+    // const now = new Date()
     const createdAt = new Date(iso)
-    const diffInMilliseconds = now - createdAt
+    // const diffInMilliseconds = now - createdAt
     // const diffInMinutes = Math.round(diffInMilliseconds / (60 * 1000))
     // console.log(createdAt.toLocaleTimeString())
     return createdAt.toLocaleTimeString()
