@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/kyusitrip-frontend-github/static/css/main.04e543b5.css",
-    "main.js": "/kyusitrip-frontend-github/static/js/main.a1dbfc71.js",
+    "main.js": "/kyusitrip-frontend-github/static/js/main.a1ffef67.js",
     "static/media/accident-icon.svg": "/kyusitrip-frontend-github/static/media/accident-icon.4c9c84e364b16a05cc23129ca7ac6360.svg",
     "static/media/traffic-jam-icon.svg": "/kyusitrip-frontend-github/static/media/traffic-jam-icon.e02dfb6df98056552e3bdd205a6562b6.svg",
     "static/media/flood-icon.svg": "/kyusitrip-frontend-github/static/media/flood-icon.4aed1757381686461ff66c260a7ce47e.svg",
@@ -20,10 +20,10 @@
     "index.html": "/kyusitrip-frontend-github/index.html",
     "static/media/map-pin-fill.svg": "/kyusitrip-frontend-github/static/media/map-pin-fill.cd9fed372e5b6935d8bf0a48c8534cf0.svg",
     "main.04e543b5.css.map": "/kyusitrip-frontend-github/static/css/main.04e543b5.css.map",
-    "main.a1dbfc71.js.map": "/kyusitrip-frontend-github/static/js/main.a1dbfc71.js.map"
+    "main.a1ffef67.js.map": "/kyusitrip-frontend-github/static/js/main.a1ffef67.js.map"
   },
   "entrypoints": [
     "static/css/main.04e543b5.css",
-    "static/js/main.a1dbfc71.js"
+    "static/js/main.a1ffef67.js"
   ]
 }
