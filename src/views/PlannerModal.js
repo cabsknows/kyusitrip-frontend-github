@@ -163,13 +163,24 @@ const RouteModal = (props) => {
     routeService
       .create(data)
       .then((response) => {
+        console.log(response.data.otpResponse.plan)
+
+        let filteredItineraries = response.data.otpResponse.plan.itineraries
+
+        if (filteredItineraries.length > 1) {
+          filteredItineraries = filteredItineraries.filter((itinerary) => {
+            return !(itinerary.legs.length === 1 && itinerary.legs[0].mode === "WALK")
+          })
+        }
+
+        
         setLoading(false)
-        setRoutes(response.data.otpResponse.plan)
+        setRoutes(filteredItineraries)
         setError("")
-        onItinerarySelect(response.data.otpResponse.plan.itineraries[0])
+        onItinerarySelect(filteredItineraries[0])
         selectPlannerCenter({
-          lat: response.data.otpResponse.plan.itineraries[0].legs[0].from.lat,
-          lng: response.data.otpResponse.plan.itineraries[0].legs[0].from.lon
+          lat: filteredItineraries[0].legs[0].from.lat,
+          lng: filteredItineraries[0].legs[0].from.lon
         })
         selectOriginMarker(null)
       })

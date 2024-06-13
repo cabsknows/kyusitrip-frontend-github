@@ -1,4 +1,5 @@
 import '../../assets/styles/routelist.css'
+import { lrt1Fare, lrt2Fare, mrt3Fare, carouselFare } from '../../utils/fareMatrix.js'
 
 
 const RouteDetail = ({ leg, selectRouteDetailCenter }) => {
@@ -20,6 +21,63 @@ const RouteDetail = ({ leg, selectRouteDetailCenter }) => {
       color = '#FFA756'
     }
     return color;
+  }
+
+  // ------------------------------------------------------------ //
+  // Fare Calculation
+  // ------------------------------------------------------------ //
+  const fareCounter = (leg) => {
+    const distanceInKilometer = Math.round(leg.distance / 1000)
+  
+    if(leg.mode === "BUS") {
+      if(leg.route.gtfsId.includes("PUJ")) {
+        if(distanceInKilometer <= 4) {
+          return 13;
+        } else {
+          let excessDistance = distanceInKilometer - 4
+          let addedFare = 1.8 * excessDistance
+  
+          return Math.round(13 + addedFare);
+        }
+      } else if(leg.route.gtfsId.includes("QCBUS")) {
+        return 0;
+      }
+
+      if(leg.route.gtfsId.includes("ROUTE_E")) {
+        let from = leg.from.name
+        let to = leg.to.name
+        return carouselFare[from][to]
+      }
+  
+      if(distanceInKilometer <=4) {
+        return 15;
+      } else {
+        let excessDistance = distanceInKilometer - 4
+        let addedFare = 2.5 * excessDistance
+  
+        return Math.round(15 + addedFare);
+      }
+    } else if (leg.mode === 'RAIL') {
+      if (leg.route.gtfsId.includes("ROUTE_880747")) { //LRT 1
+        let from = leg.from.name
+        let to = leg.to.name
+        return lrt1Fare[from][to]
+
+      } else if (leg.route.gtfsId.includes("ROUTE_880801")) { //LRT 2
+        let from = leg.from.name
+        let to = leg.to.name
+        return lrt2Fare[from][to]
+
+      } else if(leg.route.gtfsId.includes("ROUTE_880854")) { //MRT 3
+        let from = leg.from.name
+        let to = leg.to.name
+        return mrt3Fare[from][to]
+      }
+    }
+
+    else {
+      return;
+    }
   }
 
 
@@ -96,6 +154,9 @@ const RouteDetail = ({ leg, selectRouteDetailCenter }) => {
             }}>
               {(leg.mode === "BUS" && leg.route && leg.route.gtfsId && leg.route.gtfsId.includes("PUJ")) ? "JEEP" : leg.mode}
             </p>
+          </div>
+          <div>
+            {leg.mode === "WALK" ? <></> : <p style={{fontSize: "14px", fontWeight: 600}} >₱{fareCounter(leg)}</p>}
           </div>
           <div>
             <p style={{

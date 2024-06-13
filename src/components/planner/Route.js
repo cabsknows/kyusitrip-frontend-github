@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import RouteDetail from './RouteDetail'
 import "../../assets/styles/routelist.css"
+import { lrt1Fare, lrt2Fare, mrt3Fare, carouselFare } from '../../utils/fareMatrix.js'
 
 const Route = (props) => {
 
@@ -57,6 +58,77 @@ const Route = (props) => {
 
     const formattedMinutes = ('0' + minutes).substr(-2);
     return `${formattedHours}:${formattedMinutes} ${amPM}`;
+  }
+
+
+  // ------------------------------------------------------------ //
+  // Fare Counter
+  // ------------------------------------------------------------ //
+  const totalFare = (legs) => {
+    let totalFare = 0;
+    legs.forEach((leg) => {
+      let countedFare = fareCounter(leg.distance, leg)
+      if(countedFare === undefined) {
+        totalFare += 0
+      } else {
+        totalFare += countedFare
+      }
+    })
+    return totalFare
+  }
+
+  const fareCounter = (distance, leg) => {
+    const distanceInKilometer = Math.round(distance / 1000)
+  
+    if(leg.mode === "BUS") {
+      if(leg.route.gtfsId.includes("PUJ")) {
+        if(distanceInKilometer <= 4) {
+          return 13;
+        } else {
+          let excessDistance = distanceInKilometer - 4
+          let addedFare = 1.8 * excessDistance
+  
+          return Math.round(13 + addedFare);
+        }
+      } else if(leg.route.gtfsId.includes("QCBUS")) {
+        return 0;
+      }
+
+      if(leg.route.gtfsId.includes("ROUTE_E")) {
+        let from = leg.from.name
+        let to = leg.to.name
+        return carouselFare[from][to]
+      }
+  
+      if(distanceInKilometer <=4) {
+        return 15;
+      } else {
+        let excessDistance = distanceInKilometer - 4
+        let addedFare = 2.5 * excessDistance
+  
+        return Math.round(15 + addedFare);
+      }
+    } else if (leg.mode === 'RAIL') {
+      if (leg.route.gtfsId.includes("ROUTE_880747")) { //LRT 1
+        let from = leg.from.name
+        let to = leg.to.name
+        return lrt1Fare[from][to]
+
+      } else if (leg.route.gtfsId.includes("ROUTE_880801")) { //LRT 2
+        let from = leg.from.name
+        let to = leg.to.name
+        return lrt2Fare[from][to]
+
+      } else if(leg.route.gtfsId.includes("ROUTE_880854")) { //MRT 3
+        let from = leg.from.name
+        let to = leg.to.name
+        return mrt3Fare[from][to]
+      }
+    }
+
+    else {
+      return;
+    }
   }
 
   // ------------------------------------------------------------ //
@@ -136,6 +208,7 @@ const Route = (props) => {
             </div>
             <div className='distance-time' style={{fontSize: 13, marginBottom: 5, marginTop: 5}}>
               <p>{formatTime(itinerary.startTime)}</p>
+              <p> ₱{totalFare(itinerary.legs)}</p>
               <p>{formatTime(itinerary.endTime)}</p>
             </div>
             <div style={styles.grayBar}>

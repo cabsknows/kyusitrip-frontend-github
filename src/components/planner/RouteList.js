@@ -19,8 +19,8 @@ const RouteList = (props) => {
   // ------------------------------------------------------------ //
   let routesDuration = []
 
-  for (let i = 0; i < routes.itineraries.length; i++) {
-    routesDuration.push(routes.itineraries[i].duration)
+  for (let i = 0; i < routes.length; i++) {
+    routesDuration.push(routes[i].duration)
   }
  
 
@@ -28,7 +28,7 @@ const RouteList = (props) => {
     <div style={{padding: 10}}>
       {routes ? (
         <ul>
-          {routes.itineraries.map((itinerary, index) => (
+          {routes.map((itinerary, index) => (
             <div key={index}>
               <Route 
                 itinerary={itinerary} 
